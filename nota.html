@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Notas</title>
     <link rel="Stylesheet" href="./css/style.css">
+    <style>
+    fieldset{
+        width: 300px;
+        margin: auto;
+    }
+    </style>
 </head>
 <body>
     <!--
@@ -23,8 +29,9 @@
         <!--MAIN: CONTEÚDO CENTRAL-->
     <main>
         <p>Preencha os campos abaixo com as três notas de cada aluno para calcular a sua média.<br>
-        Em sguida preencha a frequência do mesmo aluno.<br>
-        Click em calcular e saiba se seu aluno está Aprovado ou Reprovado!</p>
+        Clique em calcular média para saber a média das notas do aluno, antes de preencer a frequência.<br>
+        Em seguida preencha a frequência do mesmo aluno.<br>
+        Clique em calcular situação e saiba se seu aluno está Aprovado ou Reprovado!</p>
 
         <fieldset>
             <legend>Seu aluno está <sub>Aprovado ou Reprovado?</sub></legend>
@@ -33,20 +40,49 @@
             <input type="text" id="nome" placeholder="Informe o nome do aluno" />
 
             <p>Notas do aluno:</p>
-            <input type="text" id="n1" placeholder="Informe a primeira nota" /><br>
-            <input type="text" id="n2" placeholder="Informe a segunda nota" /><br>
-            <input type="text" id="n3" placeholder="Informe a terceira nota" /><br>
-            <button onclick="calcular()">Calcular</button>
+            <input type="text" id="n1" placeholder="Informe a primeira nota" onblur="trocaSinal(this)" /><br>
+            <input type="text" id="n2" placeholder="Informe a segunda nota" onblur="trocaSinal(this)" /><br>
+            <input type="text" id="n3" placeholder="Informe a terceira nota" onblur="trocaSinal(this)" /><br>
+            <button onclick="calcular()">Calcular média</button>
 
-            <p>Média das notas do aluno: <span id="resMedia"></span></p>
+            <p>___Média das notas do aluno:___<br><span id="resMedia"></span></p>
         
             <script>
-                function calcular(){
+                function trocaSinal(item){
+                    let s1 =  item.value
+                    s1 = s1.replace(',','.')
+                    item.value = s1
+                }
+
+                function calcular(){                    
                     let n1 = parseFloat(document.getElementById("n1").value)
                     let n2 = parseFloat(document.getElementById("n2").value)
                     let n3 = parseFloat(document.getElementById("n3").value)
-                    let media = n1 + n2 + n3
+                    let media = (n1 + n2 + n3) / 3
+                    
                     document.getElementById('resMedia').innerHTML = media.toFixed(2)
+                }
+            </script>
+            
+            <p>Frequência do aluno:</p>
+            <input type="text" id="frequencia" placeholder="Informe a frequência do aluno" />
+            <button onclick="calcularSituacao()">Calcular situação</button>
+
+            <p>___Situação:___<br><span id="situacao"></span></p>
+
+            <script>
+                function calcularSituacao(){
+                    let frenquencia = parseFloat(document.getElementById("frequencia").value)
+
+                    if (frenquencia < 75) {
+                        document.getElementById("situacao").innerHTML = "Reprovado! Você faltou mais do que 75% nas aulas."
+                    } 
+                    else if (document.getElementById('resMedia').innerHTML < 7) {
+                        document.getElementById("situacao").innerHTML = "Reprovado! Você não atingiu a média necessaria para passar."
+                    } 
+                    else {
+                        document.getElementById("situacao").innerHTML = "Aprovado!."
+                    }
                 }
             </script>
         </fieldset>
