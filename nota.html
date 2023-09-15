@@ -1,12 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Página Notas</title>
+    <link rel="Stylesheet" href="./css/style.css">
 </head>
 <body>
-    NOTA
+    <!--
+    Faça uma página que leia três notas de um aluno e calcule sua média. 
+    O usuário deve poder inserir a frequência do aluno. 
+    Calcule a situação do aluno baseado na média e na frequência.
+    -->  
+
+        <!--HEADER: CABEÇALHO-->
+    <script src="./js/header.js"></script>
+    
+        <!--NAV: BARRA/LINHA DE NAVEGAÇÃO-->
+    <script src="./js/barra.js"></script>
+
+        <!--MAIN: CONTEÚDO CENTRAL-->
+    <main>
+        <p>Preencha os campos abaixo com as três notas de cada aluno para calcular a sua média.<br>
+        Em sguida preencha a frequência do mesmo aluno.<br>
+        Click em calcular e saiba se seu aluno está Aprovado ou Reprovado!</p>
+
+        <fieldset>
+            <legend>Seu aluno está <sub>Aprovado ou Reprovado?</sub></legend>
+                
+            <p>Nome do aluno:</p>
+            <input type="text" id="nome" placeholder="Informe o nome do aluno" />
+
+            <p>Notas do aluno:</p>
+            <input type="text" id="n1" placeholder="Informe a primeira nota" /><br>
+            <input type="text" id="n2" placeholder="Informe a segunda nota" /><br>
+            <input type="text" id="n3" placeholder="Informe a terceira nota" /><br>
+            <button onclick="calcular()">Calcular</button>
+
+            <p>Média das notas do aluno: <span id="resMedia"></span></p>
+        
+            <script>
+                function calcular(){
+                    let n1 = parseFloat(document.getElementById("n1").value)
+                    let n2 = parseFloat(document.getElementById("n2").value)
+                    let n3 = parseFloat(document.getElementById("n3").value)
+                    let media = n1 + n2 + n3
+                    document.getElementById('resMedia').innerHTML = media.toFixed(2)
+                }
+            </script>
+        </fieldset>
+
+    </main>
+
+        <!--FOOTER: RODAPÉ-->
+    <script src="./js/footer.js"></script>
+
 </body>
 </html>

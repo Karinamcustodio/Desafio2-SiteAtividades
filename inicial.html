@@ -5,35 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
-    <style>
-        body{
-            background-color: silver;
-        }
-        
-        ul{
-            list-style-type: none;
-            padding: 15px;
-            text-align: center;
-            border: double;
-        }
-
-        a{
-            text-decoration: none;
-            cursor: default;
-            color: black;
-            padding: 15px;
-            margin-left: 70px;
-        }
-        header{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-
-        a:hover{
-            color:brown;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <!--
@@ -41,26 +13,19 @@
     Uma barra de navegação e uma footer.
     -->  
 
-    <header>
-        <img class="logo" src="./imagem/logo.png" width="170px" height="170px" alt="logo">
-        <h2>KARINA MOREIRA CUSTODIO</h2>
-    </header>
+        <!--HEADER: CABEÇALHO-->
+    <script src="./js/header.js"></script>
     
-    <nav>
-        <ul>
-            <a href="./idade.html">Maior de idade</a>
-            <a href="./nota.html">Nota</a>
-            <a href="./imc.html">IMC</a>
-            <a href="./aumentofuncionarios">Aumento dos funcionários</a>
-        </ul>
-    </nav>
-    <main>
+        <!--NAV: BARRA/LINHA DE NAVEGAÇÃO-->
+    <script src="./js/barra.js"></script>
+
+        <!--MAIN: CONTEÚDO CENTRAL-->
+    <main> 
 
     </main>
 
-    <footer>
-        <h5>Final da Página</h5>
-    </footer>
+        <!--FOOTER: RODAPÉ-->
+    <script src="./js/footer.js"></script>
 
 </body>
 </html>
