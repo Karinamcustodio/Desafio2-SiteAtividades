@@ -1,0 +1,8 @@
+document.write("<nav>")
+document.write("<ul>")
+document.write("<a href='./idade.html'>Idade</a>")
+document.write("<a href='./nota.html'>Nota</a>")
+document.write("<a href='./imc.html'>Cálculo IMC</a>")
+document.write("<a href='./aumentofuncionarios.html'>Aumento dos funcionários</a>")
+document.write("<ul>")
+document.write("<nav>")
