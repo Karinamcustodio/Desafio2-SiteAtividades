@@ -40,6 +40,7 @@ ul a:hover{
 
 footer{
     text-align: center;
+    padding: 97px;
 }
 
 main{
@@ -53,6 +54,18 @@ fieldset{
 }
 
 input[type=text]{
+    margin-bottom: 10px;
+    padding: 5px;
+    width: calc(100% - 80px);
+}
+
+fieldset{
+    display: block;
+    width: 300px;
+    margin: auto;
+}
+
+button{
     margin-bottom: 10px;
     padding: 5px;
 }

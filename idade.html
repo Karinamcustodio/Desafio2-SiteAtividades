@@ -21,7 +21,31 @@
 
         <!--MAIN: CONTEÚDO CENTRAL-->
     <main>
-        IDADE
+        <p>Preencha o campo abaixo com a idade desejada.<br>
+        Clique no botão informar e saiba se a pessoa é maior ou menor de idade.</p>
+    
+            <fieldset>
+                <legend> Maior ou menor<sub> de  idade? </sub></legend>
+                    
+                <p>Idade desejada:</p>
+                <input type="text" id="idade" placeholder="Informe a idade desejada" />
+                <button onclick="informar()">Informar</button>
+    
+                <p>Essa idade representa que a pessoa é: <br><span id="resposta"></span></p>
+            
+                <script>
+                    function informar(){
+                        let idade = parseInt(document.getElementById("idade").value)
+
+                        if (idade < 18) {
+                            document.getElementById("resposta").innerHTML = "Menor de idade!"
+                        }
+                        else {
+                            document.getElementById("resposta").innerHTML = "Maior de idade!"
+                        }
+                    }
+                </script>
+            </fieldset>
     </main>
 
         <!--FOOTER: RODAPÉ-->
