@@ -37,6 +37,8 @@
             <input type="text" id="n2" placeholder="Informe a segunda nota" onblur="trocaSinal(this)" /><br>
             <input type="text" id="n3" placeholder="Informe a terceira nota" onblur="trocaSinal(this)" /><br>
 
+            <script src="./js/trocaSinal.js"></script>
+
             <p>Frequência do aluno:</p>
             <input type="text" id="frequencia" placeholder="Informe a frequência do aluno" />
             <button onclick="calcular()">Calcular </button>
@@ -45,12 +47,6 @@
             <p>Situação: <br><span id="situacao"></span></p>
 
             <script>
-                function trocaSinal(item){
-                    let s1 =  item.value
-                    s1 = s1.replace(',','.')
-                    item.value = s1
-                }
-
                 function calcular(){
                     let n1 = parseFloat(document.getElementById("n1").value)
                     let n2 = parseFloat(document.getElementById("n2").value)
@@ -59,7 +55,7 @@
                     
                     document.getElementById('resMedia').innerHTML = media.toFixed(2)
 
-                    let frenquencia = parseFloat(document.getElementById("frequencia").value)
+                    let frenquencia = parseInt(document.getElementById("frequencia").value)
 
                     if (frenquencia < 75) {
                         document.getElementById("situacao").innerHTML = "Reprovado! Você faltou mais do que 75% nas aulas."

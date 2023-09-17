@@ -35,16 +35,12 @@
                 <input type="text" id="peso" placeholder="Informe o seu peso em kg" onblur="trocaSinal(this)" /><br>
                 <button onclick="calcularImc()">Calcular IMC</button>
 
+                <script src="./js/trocaSinal.js"></script>
+
                 <p>Valor do IMC: <span id="imc"></span></p>
                 <p>Resultado do seu IMC: <br><span id="resultado"></span></p>
 
                 <script>
-                    function trocaSinal(item){
-                        let s1 =  item.value
-                        s1 = s1.replace(',','.')
-                        item.value = s1
-                    }
-
                     function calcularImc(){
                         let altura = parseFloat(document.getElementById("altura").value)
                         let peso = parseFloat(document.getElementById("peso").value)

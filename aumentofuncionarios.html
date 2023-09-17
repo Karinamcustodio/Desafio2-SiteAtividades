@@ -42,6 +42,8 @@
                 <p>Qual o salário atual do funcionário?</p>
                 <input type="text" id="salarioAtual" placeholder="Informe o salário atual do funcionário" onblur="trocaSinal(this)" /><br>
                 <button onclick="calcularAumento()">Calcular aumento</button>
+
+                <script src="./js/trocaSinal.js"></script>
     
                 <p>Cargo: <span id="cargo"></span></p>
                 <p>Salário atual: <span id="salario"></span></p>
@@ -49,12 +51,6 @@
                 <p>O novo salário será de: <br><span id="novoSalario"></span></p>
     
                 <script>
-                    function trocaSinal(item){
-                        let s1 =  item.value
-                        s1 = s1.replace(',','.')
-                        item.value = s1
-                    }
-
                     function calcularAumento(){
                         let cargo = document.getElementById("cargoSelecionado").value
                         let salario = parseFloat(document.getElementById("salarioAtual").value)
