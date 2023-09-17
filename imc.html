@@ -48,8 +48,8 @@
                     function calcularImc(){
                         let altura = parseFloat(document.getElementById("altura").value)
                         let peso = parseFloat(document.getElementById("peso").value)
-                        let imc = peso / (altura * altura);
-                        /*console.log(imc)*/
+                        let imc = peso / (altura * altura)
+                        //console.log(imc)
 
                         if (imc < 17) {
                             document.getElementById("resultado").innerHTML = "Você está muito abaixo do peso!"

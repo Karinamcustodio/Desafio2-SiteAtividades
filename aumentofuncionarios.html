@@ -24,7 +24,65 @@
 
         <!--MAIN: CONTEÚDO CENTRAL-->
     <main>
-        CÁLCULO PARA SABER O AUMENTO DOS FUNCIONÁRIOS
+        <p>Selecione o cargo desejado e preencha o campo abaixo com o salário do funcionário para calcular o novo salário do colaborador.<br>
+        Clique em calcular aumento para mostrar o cargo, o salário atual do funcionário, a porcentagem do aumento e o novo valor do salário com o aumento!</p>
+
+            <fieldset>
+                <legend> Calcule o<sup> aumento </sup>de cada funcionário! </legend>
+                    
+                <p>Qual o cargo do funcionário?</p>
+                <select id="cargoSelecionado">
+                    <option value="#">-Seleciona o cargo desejado-</option>
+                    <option value="Gerente">Gerente</option>
+                    <option value="Supervisor">Supervisor</option>
+                    <option value="Operador">Operador</option>
+                    <option value="Demais funcionários">Demais funcionários</option>
+                </select>
+                
+                <p>Qual o salário atual do funcionário?</p>
+                <input type="text" id="salarioAtual" placeholder="Informe o salário atual do funcionário" onblur="trocaSinal(this)" /><br>
+                <button onclick="calcularAumento()">Calcular aumento</button>
+    
+                <p>Cargo: <span id="cargo"></span></p>
+                <p>Salário atual: <span id="salario"></span></p>
+                <p>Receberá um aumento de: <span id="aumento"></span></p>
+                <p>O novo salário será de: <br><span id="novoSalario"></span></p>
+    
+                <script>
+                    function trocaSinal(item){
+                        let s1 =  item.value
+                        s1 = s1.replace(',','.')
+                        item.value = s1
+                    }
+
+                    function calcularAumento(){
+                        let cargo = document.getElementById("cargoSelecionado").value
+                        let salario = parseFloat(document.getElementById("salarioAtual").value)
+    
+                        switch (cargo) {
+                            case "Gerente":
+                                aumento = 5
+                            break;
+                            case "Supervisor":
+                                aumento = 8
+                            break;
+                            case "Operador":
+                                aumento = 9
+                            break;
+                            default:
+                                aumento = 10
+                            break;
+                        }
+                        
+                        let novoSalario = salario + ((salario * aumento) / 100)
+
+                        document.getElementById("cargo").innerHTML = cargo
+                        document.getElementById("salario").innerHTML = "R$ " + salario.toFixed(2)
+                        document.getElementById("aumento").innerHTML = aumento + "%"
+                        document.getElementById("novoSalario").innerHTML = "R$ " + novoSalario.toFixed(2)
+                    }
+                </script>
+            </fieldset>
     </main>
 
         <!--FOOTER: RODAPÉ-->
